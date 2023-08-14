@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modular Page</title>
+  <script>
+    function loadComponent(componentId, url) {
+      fetch(url)
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById(componentId).innerHTML = html;
+        });
+    }
+
+    window.onload = function () {
+      loadComponent('header', 'sections/header.html');
+      loadComponent('content', 'sections/content.html');
+      loadComponent('footer', 'sections/footer.html');
+    };
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <div id="content"></div>
+  <div id="footer"></div>
+</body>
+</html>
